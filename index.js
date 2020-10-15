@@ -16,9 +16,20 @@ Practice accessing data by console.log-ing the following pieces of data
 const fifaVar = fifaData.filter(callBack => callBack.Year === 2014)
 const fifaVar2 = fifaVar.filter(callBack => callBack.Stage === "Final")
 
-
+console.log(fifaVar)
+//(a) 
 console.log(fifaVar2[0]["Home Team Name"])
-console.log(fifaVar2[0]["Half-time Away Goals"])
+//(b)
+console.log(fifaVar[0]["Away Team Name"])
+//(c)
+console.log(fifaVar[0]["Home Team Goals"])
+//(d)s
+console.log(fifaVar[0]["Away Team Goals"])
+//(e)
+console.log(fifaVar2[0]["Win conditions"])
+
+
+
 
 
 
@@ -31,27 +42,36 @@ function getFinals(data) {
 
 };
 console.log(getFinals(fifaData))
-/* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+/* Task 3: Implement a higher-order function called `getYears` that accepts
+ the callback function `getFinals`, and returns an array called `years` 
+ containing all of the years in the dataset */
 
-    /* code here */
+function getYears(attr) {
+
+    return (attr.filter(getFinals => getFinals.Year))
 
 };
 
-getYears();
+console.log(getYears(fifaData))
 
-/* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */
+/* Task 4: Implement a higher-order function called `getWinners`, 
+that accepts the callback function `getFinals()` and determine the 
+winner (home or away) of each `finals` game. Return the name of all 
+winning countries in an array called `winners` */
 
-function getWinners(/* code here */) {
+function getWinners(Champs) {
 
-    /* code here */
+    return (Champs.filter(getFinals => getFinals.))
 
 };
 
 getWinners();
 
-/* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
+/* Task 5: Implement a higher-order function 
+called `getWinnersByYear` that accepts the following 
+parameters and returns a set of strings "In {year},
+ {country} won the world cup!" 
 
 Parameters: 
  * callback function getWinners
